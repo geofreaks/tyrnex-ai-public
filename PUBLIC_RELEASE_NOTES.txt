@@ -1,0 +1,14 @@
+﻿TYRNEX-AI public release repo
+
+Safe contents:
+- README.md
+- downloads/TYRNEX-AI-Local-Runtime-Kit.zip
+- downloads/TYRNEX-AI-Local-Runtime-Kit.zip.sha256
+
+Do not add:
+- tyrnex_ai source
+- .git from the private repo
+- data/cases
+- .env or API keys
+- raw evidence or reports
+- bundled third-party scanner binaries unless their licenses explicitly allow redistribution
