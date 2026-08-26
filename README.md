@@ -1,26 +1,130 @@
-﻿# TYRNEX-AI Public Release
+﻿# TYRNEX-AI Public Runtime
 
-This public repository is the safe download channel for TYRNEX-AI local runtime kits.
+**Autonomous Security Intelligence**  
+Discover. Validate. Defend. - Predict. Detect. Protect.
 
-It intentionally does **not** contain the private TYRNEX-AI source tree, Git history, case data, tests, secrets, or bundled security-tool binaries.
+TYRNEX-AI is a local, safe-by-default security assessment dashboard for authorized testing. It helps you discover assets, review exposure, analyze evidence, build timelines, map findings to security frameworks, and produce remediation-ready reports.
+
+This public repository is the download channel for the protected local runtime kit. It does not contain the private source repository, Git history, private tests, case data, secrets, API keys, raw evidence, or local databases.
 
 ## Download
 
-- [TYRNEX-AI Local Runtime Kit](downloads/TYRNEX-AI-Local-Runtime-Kit.zip)
+- [Download TYRNEX-AI Local Runtime Kit](downloads/TYRNEX-AI-Local-Runtime-Kit.zip)
 - [SHA256 checksum](downloads/TYRNEX-AI-Local-Runtime-Kit.zip.sha256)
 
-## Run
+## Quick Start
 
-1. Download and extract the kit.
-2. Run Run This First.cmd.
-3. Use Start TYRNEX-AI.cmd after first setup.
+1. Download and extract `TYRNEX-AI-Local-Runtime-Kit.zip`.
+2. Double-click `Run This First.cmd`.
+3. After setup, use `Start TYRNEX-AI.cmd`.
+4. Open the dashboard at `http://127.0.0.1:8765`.
 
-The kit installs Python dependencies into its own .venv, runs locally, and can bootstrap supported free tools into its own 	ools folder.
+The first-run setup creates a local `.venv`, installs runtime dependencies, checks the protected runtime, and can bootstrap supported free tools into the kit's own `tools` folder.
 
-## What Is Protected
+## What TYRNEX-AI Does
 
-- Raw Python source is removed from the downloadable runtime.
-- The private repository is not cloned and no private GitHub access is required.
-- No API keys, .env files, case exports, raw evidence, or local databases are included.
+- **Discover** authorized hosts, services, web endpoints, and attack surface.
+- **Findings** normalize scanner, host, web, cloud, code, and evidence results.
+- **Verify** supports safe, check-only validation and manual evidence confirmation.
+- **Host Assessment** reviews local or networked Windows posture without exploit actions.
+- **Cyber Triage / Analyzer** ingests mixed evidence folders and uploads such as EVTX exports, logs, firewall configs, forensic summaries, memory/disk triage manifests, scanner output, SBOMs, IOC lists, and report files.
+- **Timeline and Topology** build correlated event timelines and asset maps from discovered or imported evidence.
+- **Reports** produce remediation-ready case outputs, including Word/PDF-capable cyber triage reporting from the local dashboard/runtime.
+- **Framework Mapping** ties findings to practical security references such as NIST CSF, NIST 800-53, CIS Controls, MITRE ATT&CK, OWASP, and incident-response guidance.
 
-Local software can always be inspected by a determined person. This release model protects the repo and source history while still allowing public testers to run the product.
+## Safety Model
+
+Use TYRNEX-AI only on systems you own or are explicitly authorized to assess.
+
+The public runtime is designed around safe assessment workflows:
+
+- No stealth, persistence, destructive actions, payload delivery, credential theft, or autonomous exploitation.
+- Metasploit integration is for check-only/exploit-intelligence validation, not live exploit execution.
+- Report redaction is optional and report-scoped; the local UI and logs preserve raw evidence for your own case work.
+- Live scans and validations should be run only against authorized targets.
+
+## Optional Tools
+
+Run:
+
+```powershell
+.\Install All Tools.cmd
+```
+
+This installs or links bootstrap-supported tools when possible. Already-present tools are skipped.
+
+You can also run:
+
+```powershell
+.\Check Optional Integrations.cmd
+.\Install OWASP ZAP Integration.cmd
+.\Install Metasploit Integration.cmd
+```
+
+OWASP ZAP wrappers can be installed and counted by TYRNEX-AI even before the full ZAP application is installed. For live ZAP scans, install OWASP ZAP from the official project site.
+
+Metasploit is optional and may require Administrator rights on Windows. The integration script checks common install locations, tries supported package IDs when available, and can fall back to Rapid7's official Windows MSI flow. Once installed or linked, TYRNEX-AI uses it for check-only validation workflows.
+
+## Local Data
+
+TYRNEX-AI stores case data locally inside the extracted kit:
+
+```text
+data\TYRNEX-AI.db
+data\cases\<case-key>\
+tools\
+```
+
+The public download does not include your previous case data, uploads, reports, API keys, or `.env` files.
+
+## Protected Runtime Notes
+
+The public kit removes raw Python product source and ships a compiled Python-bytecode runtime. This protects the private repo and source history while still letting public testers run the product locally.
+
+No local software distribution can be impossible to inspect or reverse engineer. Treat this as practical source protection, not cryptographic secrecy.
+
+## Updating
+
+The public runtime does not pull from the private TYRNEX-AI repository. New versions are published here as refreshed runtime-kit downloads.
+
+To update:
+
+1. Download the latest public zip.
+2. Extract it to a new folder.
+3. Run `Run This First.cmd`.
+4. Move or export/import case data only if you intentionally want to carry it forward.
+
+## Useful Commands
+
+From the extracted kit folder:
+
+```powershell
+.\Run This First.cmd
+.\Start TYRNEX-AI.cmd
+.\Install All Tools.cmd
+.\Check Optional Integrations.cmd
+```
+
+Advanced users can run:
+
+```powershell
+.\.venv\Scripts\python.exe -m tyrnex_ai.cli doctor
+.\.venv\Scripts\python.exe -m tyrnex_ai.cli dashboard --db .\data\TYRNEX-AI.db --host 127.0.0.1 --port 8765 --open
+```
+
+## Public Release Contents
+
+Safe contents:
+
+- `README.md`
+- `downloads/TYRNEX-AI-Local-Runtime-Kit.zip`
+- `downloads/TYRNEX-AI-Local-Runtime-Kit.zip.sha256`
+
+Not included:
+
+- Private TYRNEX-AI source tree
+- Private Git history
+- Developer tests
+- `.env` files or API keys
+- Raw evidence, reports, uploads, or case databases
+- Private vulnerable-lab source
