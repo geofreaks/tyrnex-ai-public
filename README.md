@@ -5,12 +5,33 @@ Discover. Validate. Defend. - Predict. Detect. Protect.
 
 TYRNEX-AI is a local, safe-by-default security assessment dashboard for authorized testing. It helps you discover assets, review exposure, analyze evidence, build timelines, map findings to security frameworks, and produce remediation-ready reports.
 
+**Best for:** home labs, small-business security reviews, blue-team triage, defensive validation, evidence review, and local-first cyber assessments.
+
+**Short version:** download the runtime kit, run it locally, assess only systems you own or are authorized to test, then export findings, topology, timelines, and remediation reports.
+
 This public repository is the download channel for the protected local runtime kit. It does not contain the private source repository, Git history, private tests, case data, secrets, API keys, raw evidence, or local databases.
+
+## Why People Use It
+
+- **Local-first:** case data, uploads, findings, and reports stay on the machine where the kit runs.
+- **Assessment workflow:** Discover -> Findings -> Verify -> Remediate -> Report.
+- **Cyber triage:** analyze mixed evidence folders, logs, exports, configs, timelines, and scanner output.
+- **Defensive by design:** safe checks, evidence confirmation, and check-only validation instead of autonomous exploitation.
+- **Report-ready:** remediation guidance, control mappings, timelines, topology exports, and Word/PDF-capable reporting.
+
+## Related Project
+
+- [CybSec-AI Community](https://github.com/geofreaks/cybsec-ai-community) is the public home for the web-based defensive AI workbench, including beta feedback, docs, roadmap, and safe issue reporting.
+- Hosted CybSec-AI beta: https://www.cybsec-ai.com/
+
+TYRNEX-AI is the local assessment, triage, and reporting runtime. CybSec-AI is the companion AI/analyzer workbench. They can exchange exported evidence and reports, but this TYRNEX-AI runtime does not require CybSec-AI to install or run.
 
 ## Download
 
 - [Download TYRNEX-AI Local Runtime Kit](downloads/TYRNEX-AI-Local-Runtime-Kit.zip)
 - [SHA256 checksum](downloads/TYRNEX-AI-Local-Runtime-Kit.zip.sha256)
+
+If GitHub warns that the ZIP is large, use the link above from the repository page or download it from the latest public release when one is published.
 
 ## Quick Start
 
@@ -64,6 +85,16 @@ You can also run:
 OWASP ZAP wrappers can be installed and counted by TYRNEX-AI even before the full ZAP application is installed. For live ZAP scans, install OWASP ZAP from the official project site.
 
 Metasploit is optional and may require Administrator rights on Windows. The integration script checks common install locations, tries supported package IDs when available, and can fall back to Rapid7's official Windows MSI flow. Once installed or linked, TYRNEX-AI uses it for check-only validation workflows.
+
+## Share / Star
+
+If TYRNEX-AI helps your lab or security review workflow:
+
+- Star this repository so others can find it.
+- Share the public runtime link: https://github.com/geofreaks/tyrnex-ai-public
+- Open an issue with safe feedback, bugs, packaging notes, or feature requests.
+
+Please do not post secrets, real customer evidence, private logs, or exploit targets in public issues.
 
 ## Local Data
 
