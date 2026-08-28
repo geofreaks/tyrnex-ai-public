@@ -11,6 +11,10 @@ TYRNEX-AI is a local, safe-by-default security assessment dashboard for authoriz
 
 This public repository is the download channel for the protected local runtime kit. It does not contain the private source repository, Git history, private tests, case data, secrets, API keys, raw evidence, or local databases.
 
+## Platform Support
+
+TYRNEX-AI is currently supported and tested on Windows 10/11. The launchers, first-run setup, tool bootstrap, optional integrations, Host Assessment, Host Acquire, DFIR helpers, and rogue LAN probe workflows are Windows-first. Linux components are contained lab/WSL/VM pieces launched from the Windows workflow. macOS is not a supported runtime today.
+
 ## Why People Use It
 
 - **Local-first:** case data, uploads, findings, and reports stay on the machine where the kit runs.
@@ -41,6 +45,36 @@ If GitHub warns that the ZIP is large, use the link above from the repository pa
 4. Open the dashboard at `http://127.0.0.1:8765`.
 
 The first-run setup creates a local `.venv`, installs runtime dependencies, checks the protected runtime, and can bootstrap supported free tools into the kit's own `tools` folder.
+
+## Offline Use
+
+The public runtime is local-first, but it is not magically offline before first setup.
+
+Best offline prep:
+
+1. Extract the kit on an internet-connected Windows machine.
+2. Run `Run This First.cmd`.
+3. Run `Install All Tools.cmd` if you want scanner/DFIR tools available offline.
+4. Run `Check Optional Integrations.cmd` and confirm required tools are green.
+5. Copy the entire prepared folder to USB or the offline machine.
+6. Launch offline with `Start TYRNEX-AI.cmd`.
+
+Works offline after prep:
+
+- Dashboard and local case database
+- Evidence upload/folder analysis
+- Host Acquire imports and built-in disk triage logic
+- Cyber Triage / Host Exam over local evidence
+- Reports, timelines, topology, and exports
+- Any scanners or DFIR tools already installed under `tools\`
+
+Needs internet:
+
+- First-run Python package install
+- `Install All Tools.cmd` downloads
+- CVE, EPSS, KEV, public threat intel, and enrichment refreshes
+- Optional ZAP/Metasploit installer downloads
+- Downloading a newer public runtime kit
 
 ## What TYRNEX-AI Does
 
@@ -73,6 +107,8 @@ Run:
 ```
 
 This installs or links bootstrap-supported tools when possible. Already-present tools are skipped.
+
+The bootstrap-supported DFIR set includes WinPmem, Hayabusa, Chainsaw, Volatility3, Velociraptor, AVML, and Eric Zimmerman's Windows parsers. KAPE is not redistributed because the official Kroll download is gated; place it under `tools\kape\` if you use it. Velociraptor endpoint collection on Windows may require UAC/elevation.
 
 You can also run:
 
