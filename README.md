@@ -44,7 +44,7 @@ If GitHub warns that the ZIP is large, use the link above from the repository pa
 3. After setup, use `Start TYRNEX-AI.cmd`.
 4. Open the dashboard at `http://127.0.0.1:8765`.
 
-The first-run setup creates a local `.venv`, installs runtime dependencies, checks the protected runtime, and can bootstrap supported free tools into the kit's own `tools` folder.
+The first-run setup creates a local `.venv`, installs runtime dependencies, checks the protected runtime, and can bootstrap supported free tools into the kit's own `tools` folder. If the PC has no usable Python, it downloads Python 3.11.9 into `.runtime\python` inside the kit. If the kit is moved between Windows PCs and `.venv` points to the old machine, the launchers rebuild it.
 
 ## Offline Use
 
@@ -56,7 +56,7 @@ Best offline prep:
 2. Run `Run This First.cmd`.
 3. Run `Install All Tools.cmd` if you want scanner/DFIR tools available offline.
 4. Run `Check Optional Integrations.cmd` and confirm required tools are green.
-5. Copy the entire prepared folder to USB or the offline machine.
+5. Copy the entire prepared folder to USB or the offline machine, including `.venv`, `.runtime`, `tools`, and `data` if you want that local case history.
 6. Launch offline with `Start TYRNEX-AI.cmd`.
 
 Works offline after prep:
