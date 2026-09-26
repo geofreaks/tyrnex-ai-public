@@ -42,9 +42,9 @@ If GitHub warns that the ZIP is large, use the link above from the repository pa
 1. Download and extract `TYRNEX-AI-Local-Runtime-Kit.zip`.
 2. Double-click `Run This First.cmd`.
 3. After setup, use `Start TYRNEX-AI.cmd`.
-4. Open the dashboard at `http://127.0.0.1:8765`.
+4. Open the dashboard URL printed by the launcher. Local-only runs use `http://127.0.0.1:8765`; LAN/all-interface runs use `https://<LAN-IP>:8765`.
 
-The first-run setup creates a local `.venv`, installs runtime dependencies, checks the protected runtime, and can bootstrap supported free tools into the kit's own `tools` folder. If the PC has no usable Python, it downloads Python 3.11.9 into `.runtime\python` inside the kit. If the kit is moved between Windows PCs and `.venv` points to the old machine, the launchers rebuild it.
+The first-run setup creates a local `.venv`, installs runtime dependencies, checks the protected runtime, and can bootstrap supported free tools into the kit's own `tools` folder. If the PC has no matching Python, it downloads the CPython build version recorded in runtime-python.json into `.runtime\python` inside the kit. If the kit is moved between Windows PCs and `.venv` points to the old machine or the wrong bytecode version, the launchers rebuild it.
 
 ## Offline Use
 
@@ -118,7 +118,7 @@ You can also run:
 .\Install Metasploit Integration.cmd
 ```
 
-OWASP ZAP wrappers can be installed and counted by TYRNEX-AI even before the full ZAP application is installed. For live ZAP scans, install OWASP ZAP from the official project site.
+OWASP ZAP adapters use the installed ZAP application, Java runtime and Automation Framework add-ons for bounded baseline/active scans. Run tools\bin\zap-baseline.py.cmd --check to verify startup prerequisites. Full active scans require explicit authorization. Scanner presence alone is not scan readiness.
 
 Metasploit is optional and may require Administrator rights on Windows. The integration script checks common install locations, tries supported package IDs when available, and can fall back to Rapid7's official Windows MSI flow. Once installed or linked, TYRNEX-AI uses it for check-only validation workflows.
 
@@ -146,7 +146,7 @@ The public download does not include your previous case data, uploads, reports, 
 
 ## Protected Runtime Notes
 
-The public kit removes raw Python product source and ships a compiled Python-bytecode runtime. This protects the private repo and source history while still letting public testers run the product locally.
+The public kit omits raw Python product source and private Git history and ships compiled Python bytecode. This reduces casual source exposure; it is not encryption or a guarantee against reverse engineering.
 
 No local software distribution can be impossible to inspect or reverse engineer. Treat this as practical source protection, not cryptographic secrecy.
 
