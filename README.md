@@ -1,7 +1,7 @@
 ﻿# TYRNEX-AI Public Runtime
 
 **Autonomous Security Intelligence**  
-Discover. Validate. Defend. - Predict. Detect. Protect.
+Discover. Validate. Defend.
 
 TYRNEX-AI is a local, safe-by-default security assessment dashboard for authorized testing. It helps you discover assets, review exposure, analyze evidence, build timelines, map findings to security frameworks, and produce remediation-ready reports.
 
