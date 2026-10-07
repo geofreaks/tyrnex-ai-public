@@ -1,4 +1,4 @@
-﻿# TYRNEX-AI Public Runtime
+# TYRNEX-AI Public Runtime
 
 **Autonomous Security Intelligence**  
 Discover. Validate. Defend.
