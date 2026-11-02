@@ -1,4 +1,4 @@
-TYRNEX-AI public release repo
+﻿TYRNEX-AI public release repo
 
 Safe contents:
 - README.md
